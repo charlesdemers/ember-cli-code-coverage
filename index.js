@@ -201,7 +201,7 @@ module.exports = {
       let globs = this.parentRegistry.extensionsForType('js').map((extension) => `**/*.${extension}`);
 
       return walkSync(dir, { directories: false, globs }).map(file => {
-        let module = prefix + '/' + file.replace(EXT_RE, '.js');
+        let module = prefix + '/' + file;
         this.fileLookup[module] = path.join(dirname, file);
         return module;
       });
